@@ -22,7 +22,7 @@ def employee_data():
     return results
 
 
-@app.route('/')
+@app.route('/', methods=['GET'])
 def index():
     return jsonify({'Employee Data': employee_data()})
 
