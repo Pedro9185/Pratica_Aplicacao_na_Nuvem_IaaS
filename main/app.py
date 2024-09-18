@@ -4,22 +4,6 @@ import mysql.connector
 
 app = Flask(__name__)
 
-def write_to_employee_data(firstName: str, lastName: str, email: str, title:str):
-    config = {
-        'user': 'root',
-        'password': 'root',
-        'host': 'db',
-        'port': '3306',
-        'database': 'employees'
-    }
-    connection = mysql.connector.connect(**config)
-    cursor = connection.cursor()
-    query = "INSERT INTO employees(firstName,lastName,email, Title) VALUES (%s, %s)"
-    values = (firstName,lastName,email, title)
-    cursor.execute(query, values)
-    connection.commit()
-    cursor.close()
-    connection.close()
 
 def employee_data():
     config = {
@@ -31,15 +15,15 @@ def employee_data():
     }
     connection = mysql.connector.connect(**config)
     cursor = connection.cursor(dictionary=True)
-    cursor.execute('SELECT firstName,lastName,email, Title FROM employees')
+    cursor.execute('SELECT firstName,lastName,email,Title FROM employees')
     results = cursor.fetchall()
     cursor.close()
     connection.close()
     return results
 
+
 @app.route('/')
 def index():
-    write_to_employee_data("Siddharth ","Sharma","email@teste.com","Analyst")
     return jsonify({'Employee Data': employee_data()})
 
 

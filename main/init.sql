@@ -1,5 +1,5 @@
-CREATE DATABASE employees;
-USE employees;
+CREATE DATABASE employee;
+USE employee;
 
 
 CREATE TABLE employees (
