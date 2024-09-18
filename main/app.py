@@ -15,7 +15,7 @@ def employee_data():
     }
     connection = mysql.connector.connect(**config)
     cursor = connection.cursor(dictionary=True)
-    cursor.execute('SELECT firstName,lastName,email,Title FROM employees')
+    cursor.execute('SELECT * FROM employees')
     results = cursor.fetchall()
     cursor.close()
     connection.close()
