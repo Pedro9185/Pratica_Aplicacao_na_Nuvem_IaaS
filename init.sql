@@ -15,3 +15,6 @@ INSERT INTO employee_data
 VALUES
  ('Amit'  ,'Khanna','teste@gmail.com', 'Manager'),
  ('Anjali' ,'Gupta','email2@teste.com', 'Engineer');
+
+
+ 
